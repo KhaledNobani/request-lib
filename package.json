@@ -1,0 +1,24 @@
+{
+  "name": "request-lib",
+  "version": "1.0.0",
+  "description": "The small library for making HTTP / HTTPS request into the endpoint",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "NodeJS",
+    "Node",
+    "Request",
+    "HTTP",
+    "HTTPS",
+    "Endpoint",
+    "API"
+  ],
+  "author": "Khaled Nobani",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-watch": "^4.3.10"
+  }
+}
