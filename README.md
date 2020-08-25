@@ -1,110 +1,80 @@
-# Request Lib
-The small library for making HTTP / HTTPS request into the endpoint.
+# @khalednobani/request-lib
+The `package` for making HTTP / HTTPS request into the endpoint.
+
+[![npm version](./src/svg/npm.svg)](./src/svg/npm.svg) [![build status](./src/svg/build-status.svg)](./src/svg/build-status.svg)
+
+## Docs
+
+Check the [documentation](https://khalednobani.github.io/request-lib/)
+
+## Installation
+
+Install the `module` with `npm`
+```bash
+$ npm install -D request-lib
+```
 
 ## Usage
 
-* To make quick **GET** request.
+* To make quick **GET | POST | PUT | DELETE** request.
 
 ```js
-const RequestLib = require('request-lib');
+const REQUEST_LIB = require('request-lib');
 
-RequestLib.get({
-    url: 'http://localhost',
+REQUEST_LIB.get({
+    url: '{endpoint}',
     params: {
-        'params1': "Value1",
-        'params2': "Value2"
+      "page": 1,
+      "limit": 10
     },
-    headers: {}
+    headers: {
+      "authorization": "bearer {access_token}"
+    }
 })
-    .then((Response) => {
-        console.log("Response ...");
-        console.log(Response.response_text);
-    }).catch((Error) => {
-        console.log("Error ...");
-        console.log(Error);
+    .then((response) => {
+        /* The response as response text (UTF-8) */
+        console.log(response.response_text);
+    }).catch((error) => {
+        /* Logs the error for further debugging */
+        console.log(error);
     });
 ```
 
-* To make **POST** request.
-
-```js
-const RequestLib = require('request-lib');
-
-RequestLib.post({
-    url: 'http://localhost',
-    params: {
-        'params1': "Value1",
-        'params2': "Value2"
-    },
-    body: {
-        'body1': "Value1",
-        'body2': "Value2"
-    },
-    headers: {}
-})
-    .then((Response) => {
-        console.log("Response ...");
-        console.log(Response.response_text);
-    }).catch((Error) => {
-        console.log("Error ...");
-        console.log(Error);
-    });
+## Proejct structure
+### The tree structure
+```
+├── docs
+│   └── how-to-use.md
+├── examples
+│   └── make-local-request.js
+├── libs
+│   └── Request.js
+├── src/
+│   └── svg
+│       ├── buld-status.svg
+│       ├── npm.svg
+│   └── Request.js
+├── _config.yml
+├── .gitignore
+├── index.js
+├── LICENSE
+├── package.json
+├── README.md
 ```
 
-* To make **PUT** request.
+## Dependencies
 
-```js
-const RequestLib = require('request-lib');
+* http / https module - provides HTTP / HTTPS request
+* url-parser - provides utility to parse URL
+* querystring - provides utility to parse querystring
 
-RequestLib.put({
-    url: 'http://localhost',
-    params: {
-        'params1': "Value1",
-        'params2': "Value2"
-    },
-    body: {
-        'body1': "Value1",
-        'body2': "Value2"
-    },
-    headers: {}
-})
-    .then((Response) => {
-        console.log("Response ...");
-        console.log(Response.response_text);
-    }).catch((Error) => {
-        console.log("Error ...");
-        console.log(Error);
-    });
-```
-
-* To make **DELETE** request.
-
-```js
-const RequestLib = require('request-lib');
-
-RequestLib.delete({
-    url: 'http://localhost',
-    params: {
-        'params1': "Value1",
-        'params2': "Value2"
-    },
-    headers: {}
-})
-    .then((Response) => {
-        console.log("Response ...");
-        console.log(Response.response_text);
-    }).catch((Error) => {
-        console.log("Error ...");
-        console.log(Error);
-    });
-```
-
-## Keep in touch
+## Support & Help
 
 - [Issues](https://github.com/khalednobani/request-lib/issues)
-- [@khaledntweets](https://twitter.com/khaledntweets)
-- [Facebook](https://facebook.com/khaled.z.nobani)
-- [Email](mailto:khaled.z.nobani@gmail.com)
+
+## Privacy
+
+This module does <strong>NOT</strong> collect and send any user data. All the operations on the module are done locally on the execution time.
 
 ## License
 MIT License
